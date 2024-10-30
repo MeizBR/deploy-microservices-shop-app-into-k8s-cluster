@@ -1,0 +1,18 @@
+releases:
+  - name: rediscart
+    chart: charts/redis
+    values:
+      - values/redis-values.yaml
+      # Here you can override the values of your deployment
+      - appReplicas: "2"
+      - volumeName: "redis-cart-data"
+
+  - name: emailservice
+    chart: charts/microservice
+    values:
+      - values/email-service-values.yaml
+
+  - name: frontend
+    chart: charts/microservice
+    values:
+      - values/frontend-values.yaml
